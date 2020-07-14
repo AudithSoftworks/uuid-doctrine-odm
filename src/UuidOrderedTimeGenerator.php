@@ -1,6 +1,6 @@
 <?php
 
-namespace JDR\Uuid\Doctrine\ODM;
+namespace AudithSoftworks\Uuid\Doctrine\ODM;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ODM\MongoDB\Id\IdGenerator;

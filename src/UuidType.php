@@ -1,12 +1,11 @@
 <?php
 
-namespace JDR\Uuid\Doctrine\ODM;
+namespace AudithSoftworks\Uuid\Doctrine\ODM;
 
 use Doctrine\ODM\MongoDB\Types\Type;
+use AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException;
 use InvalidArgumentException;
 use Ramsey\Uuid\Uuid;
-
-use JDR\Uuid\Doctrine\ODM\Exception\ConversionException;
 use Ramsey\Uuid\UuidInterface;
 
 class UuidType extends Type
@@ -21,8 +20,7 @@ class UuidType extends Type
      *
      * @param mixed $value The value to convert.
      *
-     * @throws \JDR\Uuid\Doctrine\ODM\Exception\ConversionException
-     *
+     * @throws \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException
      * @return Uuid
      */
     public function convertToPHPValue($value): ?UuidInterface
@@ -36,7 +34,7 @@ class UuidType extends Type
         }
 
         try {
-            $uuid =  Uuid::fromString($value);
+            $uuid = Uuid::fromString($value);
         } catch (InvalidArgumentException $e) {
             throw ConversionException::conversionFailed($value, self::NAME);
         }
@@ -49,8 +47,7 @@ class UuidType extends Type
      *
      * @param mixed $value The value to convert.
      *
-     * @throws \JDR\Uuid\Doctrine\ODM\Exception\ConversionException
-     *
+     * @throws \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException
      * @return string
      */
     public function convertToDatabaseValue($value): ?string
@@ -60,7 +57,7 @@ class UuidType extends Type
         }
 
         if ($value instanceof Uuid || Uuid::isValid($value)) {
-            return (string) $value;
+            return (string)$value;
         }
 
         throw ConversionException::conversionFailed($value, self::NAME);
@@ -77,7 +74,7 @@ class UuidType extends Type
                 try {
                     $uuid = \Ramsey\Uuid\Uuid::fromString($value);
                 } catch (InvalidArgumentException $e) {
-                    throw \JDR\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
+                    throw \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
                 }
             }
 
@@ -94,7 +91,7 @@ class UuidType extends Type
             } elseif ($value instanceof \Ramsey\Uuid\Uuid || \Ramsey\Uuid\Uuid::isValid($value)) {
                 $mongo = (string) $value;
             } else {
-                throw \JDR\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
+                throw \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
             }
 
             $return = $mongo;',

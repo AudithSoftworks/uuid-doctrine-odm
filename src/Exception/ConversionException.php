@@ -1,6 +1,6 @@
 <?php
 
-namespace JDR\Uuid\Doctrine\ODM\Exception;
+namespace AudithSoftworks\Uuid\Doctrine\ODM\Exception;
 
 use Doctrine\Persistence\Mapping\MappingException;
 

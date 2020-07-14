@@ -1,10 +1,10 @@
 <?php
 
-namespace JDR\Uuid\Doctrine\ODM;
+namespace AudithSoftworks\Uuid\Doctrine\ODM;
 
 use Doctrine\ODM\MongoDB\Types\Type;
+use AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException;
 use InvalidArgumentException;
-use JDR\Uuid\Doctrine\ODM\Exception\ConversionException;
 use MongoDB\BSON\Binary;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -21,8 +21,7 @@ class UuidBinaryType extends Type
      *
      * @param mixed $value The value to convert.
      *
-     * @throws \JDR\Uuid\Doctrine\ODM\Exception\ConversionException
-     *
+     * @throws \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException
      * @return \Ramsey\Uuid\UuidInterface
      */
     public function convertToPHPValue($value): ?UuidInterface
@@ -50,8 +49,7 @@ class UuidBinaryType extends Type
      *
      * @param mixed $value The value to convert.
      *
-     * @throws \JDR\Uuid\Doctrine\ODM\Exception\ConversionException
-     *
+     * @throws \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException
      * @return \MongoDB\BSON\Binary
      */
     public function convertToDatabaseValue($value): ?Binary
@@ -85,7 +83,7 @@ class UuidBinaryType extends Type
                 try {
                     $uuid = \Ramsey\Uuid\Uuid::fromBytes($value);
                 } catch (InvalidArgumentException $e) {
-                    throw \JDR\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
+                    throw \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
                 }
             }
             $return = $uuid;',
@@ -107,7 +105,7 @@ class UuidBinaryType extends Type
                 if ($value instanceof \Ramsey\Uuid\Uuid) {
                     $mongo = new \MongoDB\BSON\Binary($value->getBytes(), %d);
                 } else {
-                    throw \JDR\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
+                    throw \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');
                 }
             }
             $return = $mongo;',

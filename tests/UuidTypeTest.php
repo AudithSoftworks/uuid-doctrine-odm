@@ -1,10 +1,10 @@
 <?php
 
-namespace JDR\Uuid\Doctrine\ODM\Test;
+namespace AudithSoftworks\Uuid\Doctrine\ODM\Test;
 
 use Doctrine\ODM\MongoDB\Types\Type;
-use JDR\Uuid\Doctrine\ODM\Exception\ConversionException;
-use JDR\Uuid\Doctrine\ODM\UuidType;
+use AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException;
+use AudithSoftworks\Uuid\Doctrine\ODM\UuidType;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
 

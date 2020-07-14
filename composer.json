@@ -1,8 +1,7 @@
 {
-    "name": "jdr/uuid-doctrine-odm",
+    "name": "audithsoftworks/uuid-doctrine-odm",
     "description": "Allow the use of a ramsey/uuid UUID as Doctrine ODM field type.",
     "keywords": [
-        "jdr",
         "uuid-doctrine-odm"
     ],
     "homepage": "https://github.com/johanderuijter/uuid-doctrine-odm",
@@ -13,10 +12,15 @@
             "email": "dev@johanderuijter.nl",
             "homepage": "http://www.johanderuijter.nl",
             "role": "Developer"
+        },
+        {
+            "name": "Shahriyar Imanov",
+            "email": "shehi@imanov.me",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php" : "^7.2",
+        "php" : "^7.3",
         "ext-mongodb": "*",
         "ramsey/uuid": "^4.0",
         "doctrine/mongodb-odm": "^2.1"
@@ -27,12 +31,12 @@
     },
     "autoload": {
         "psr-4": {
-            "JDR\\Uuid\\Doctrine\\ODM\\": "src"
+            "AudithSoftworks\\Uuid\\Doctrine\\ODM\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JDR\\Uuid\\Doctrine\\ODM\\Test\\": "tests"
+            "AudithSoftworks\\Uuid\\Doctrine\\ODM\\Test\\": "tests"
         }
     },
     "scripts": {

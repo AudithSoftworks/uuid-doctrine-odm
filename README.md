@@ -12,7 +12,7 @@ Allow the use of a ramsey/uuid UUID as Doctrine ODM field type.
 Via Composer
 
 ``` bash
-$ composer require jdr/uuid-doctrine-odm
+$ composer require audithsoftworks/uuid-doctrine-odm
 ```
 
 ## Usage
@@ -22,8 +22,8 @@ $ composer require jdr/uuid-doctrine-odm
 
 use Doctrine\ODM\MongoDB\Types\Type;
 
-Type::registerType('ramsey_uuid', \JDR\Uuid\Doctrine\ODM\UuidType::class);
-Type::registerType('ramsey_uuid_binary', \JDR\Uuid\Doctrine\ODM\UuidBinaryType::class);
+Type::registerType('ramsey_uuid', \AudithSoftworks\Uuid\Doctrine\ODM\UuidType::class);
+Type::registerType('ramsey_uuid_binary', \AudithSoftworks\Uuid\Doctrine\ODM\UuidBinaryType::class);
 
 ```
 
@@ -47,17 +47,18 @@ If you discover any security related issues, please email dev@johanderuijter.nl 
 
 ## Credits
 
-- [Johan de Ruijter][link-author]
+- [Shahriyar Imanov][link-author] (v2.x and v3.x)
+- [Johan de Ruijter][link-author] (v1.x)
 - [All Contributors][link-contributors]
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/jdr/uuid-doctrine-odm.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/audithsoftworks/uuid-doctrine-odm.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/johanderuijter/uuid-doctrine-odm/master.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/jdr/uuid-doctrine-odm.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/audithsoftworks/uuid-doctrine-odm.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/jdr/uuid-doctrine-odm
 [link-travis]: https://travis-ci.org/johanderuijter/uuid-doctrine-odm
