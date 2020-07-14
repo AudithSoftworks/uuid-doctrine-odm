@@ -8,14 +8,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Johan de Ruijter",
-            "email": "dev@johanderuijter.nl",
-            "homepage": "http://www.johanderuijter.nl",
+            "name": "Shahriyar Imanov",
+            "email": "shehi@imanov.me",
             "role": "Developer"
         },
         {
-            "name": "Shahriyar Imanov",
-            "email": "shehi@imanov.me",
+            "name": "Johan de Ruijter",
+            "email": "dev@johanderuijter.nl",
+            "homepage": "http://www.johanderuijter.nl",
             "role": "Developer"
         }
     ],
