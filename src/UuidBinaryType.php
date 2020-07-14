@@ -2,8 +2,8 @@
 
 namespace AudithSoftworks\Uuid\Doctrine\ODM;
 
-use Doctrine\ODM\MongoDB\Types\Type;
 use AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException;
+use Doctrine\ODM\MongoDB\Types\Type;
 use InvalidArgumentException;
 use MongoDB\BSON\Binary;
 use Ramsey\Uuid\Uuid;
@@ -29,7 +29,7 @@ class UuidBinaryType extends Type
         if (null === $value) {
             return null;
         }
-        if ($value instanceof Uuid) {
+        if ($value instanceof UuidInterface) {
             return $value;
         }
         if ($value instanceof Binary) {
@@ -63,7 +63,7 @@ class UuidBinaryType extends Type
         if (is_string($value) && Uuid::isValid($value)) {
             $value = Uuid::fromString($value);
         }
-        if ($value instanceof Uuid) {
+        if ($value instanceof UuidInterface) {
             return new Binary($value->getBytes(), Binary::TYPE_UUID);
         }
         throw ConversionException::conversionFailed($value, self::NAME);
@@ -74,7 +74,7 @@ class UuidBinaryType extends Type
         return sprintf(
             'if (null === $value) {
                 $uuid = null;
-            } elseif ($value instanceof \Ramsey\Uuid\Uuid) {
+            } elseif ($value instanceof \Ramsey\Uuid\UuidInterface) {
                 $uuid = $value;
             } else {
                 if ($value instanceof \MongoDB\BSON\Binary) {
@@ -102,7 +102,7 @@ class UuidBinaryType extends Type
                 if (is_string($value) && \Ramsey\Uuid\Uuid::isValid($value)) {
                     $value = \Ramsey\Uuid\Uuid::fromString($value);
                 }
-                if ($value instanceof \Ramsey\Uuid\Uuid) {
+                if ($value instanceof \Ramsey\Uuid\UuidInterface) {
                     $mongo = new \MongoDB\BSON\Binary($value->getBytes(), %d);
                 } else {
                     throw \AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException::conversionFailed($value, \'%s\');

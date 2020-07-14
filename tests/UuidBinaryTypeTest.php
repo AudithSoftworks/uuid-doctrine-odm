@@ -2,12 +2,13 @@
 
 namespace AudithSoftworks\Uuid\Doctrine\ODM\Test;
 
-use Doctrine\ODM\MongoDB\Types\Type;
 use AudithSoftworks\Uuid\Doctrine\ODM\Exception\ConversionException;
 use AudithSoftworks\Uuid\Doctrine\ODM\UuidBinaryType;
+use Doctrine\ODM\MongoDB\Types\Type;
 use MongoDB\BSON\Binary;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 class UuidBinaryTypeTest extends TestCase
 {
@@ -57,8 +58,8 @@ class UuidBinaryTypeTest extends TestCase
     /**
      * @dataProvider provideValidPHPToDatabaseValues
      *
-     * @param $input
-     * @param $output
+     * @param mixed $input
+     * @param mixed $output
      */
     public function testValidPHPToDatabaseValue($input, $output): void
     {
@@ -98,7 +99,7 @@ class UuidBinaryTypeTest extends TestCase
     /**
      * @dataProvider provideInvalidPHPToDatabaseValues
      *
-     * @param $input
+     * @param mixed $input
      */
     public function testInvalidClosureToDatabase($input): void
     {
@@ -145,20 +146,20 @@ class UuidBinaryTypeTest extends TestCase
     /**
      * @dataProvider provideValidDatabaseToPHPValues
      *
-     * @param $input
-     * @param $output
+     * @param mixed $input
+     * @param mixed $output
      */
     public function testValidDatabaseToPHPValue($input, $output): void
     {
         $actual = $this->type->convertToPHPValue($input);
-        static::assertInstanceOf(Uuid::class, $actual);
+        static::assertInstanceOf(UuidInterface::class, $actual);
         static::assertSame($output, $actual->toString());
     }
 
     /**
      * @dataProvider provideInvalidDatabaseToPHPValues
      *
-     * @param $input
+     * @param mixed $input
      */
     public function testInvalidDatabaseToPHPValue($input): void
     {
@@ -170,8 +171,8 @@ class UuidBinaryTypeTest extends TestCase
     /**
      * @dataProvider provideValidDatabaseToPHPValues
      *
-     * @param $input
-     * @param $output
+     * @param mixed $input
+     * @param mixed $output
      */
     public function testValidClosureToPHP($input, $output): void
     {
@@ -179,12 +180,14 @@ class UuidBinaryTypeTest extends TestCase
             eval($this->type->closureToPHP());
         }, $input);
 
-        static::assertInstanceOf(Uuid::class, $return);
+        static::assertInstanceOf(UuidInterface::class, $return);
         static::assertEquals($output, $return->toString());
     }
 
     /**
      * @dataProvider provideInvalidDatabaseToPHPValues
+     *
+     * @param mixed $input
      */
     public function testInvalidClosureToPHP($input): void
     {
