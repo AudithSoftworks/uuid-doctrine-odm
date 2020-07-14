@@ -41,14 +41,10 @@ $ composer test
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
 
-## Security
-
-If you discover any security related issues, please email dev@johanderuijter.nl instead of using the issue tracker.
-
 ## Credits
 
 - [Shahriyar Imanov][link-author] (v2.x and v3.x)
-- [Johan de Ruijter][link-author] (v1.x)
+- [Johan de Ruijter][link-old-author] (v1.x)
 - [All Contributors][link-contributors]
 
 ## License
@@ -60,8 +56,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-travis]: https://www.travis-ci.com/AudithSoftworks/uuid-doctrine-odm.svg?branch=master&status=started
 [ico-downloads]: https://img.shields.io/packagist/dt/audithsoftworks/uuid-doctrine-odm.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/jdr/uuid-doctrine-odm
-[link-travis]: https://travis-ci.org/johanderuijter/uuid-doctrine-odm
-[link-downloads]: https://packagist.org/packages/jdr/uuid-doctrine-odm
-[link-author]: https://github.com/johanderuijter
+[link-packagist]: https://packagist.org/packages/audithsoftworks/uuid-doctrine-odm
+[link-travis]: https://travis-ci.org/AudithSoftworks/uuid-doctrine-odm
+[link-downloads]: https://packagist.org/packages/audithsoftworks/uuid-doctrine-odm
+[link-author]: https://github.com/AudithSoftworks
+[link-old-author]: https://github.com/johanderuijter
 [link-contributors]: ../../contributors
